@@ -1,8 +1,13 @@
 package org.learn.grizzly;
 
-import org.learn.grizzly.util.HibernateUtil;
-import org.learn.grizzly.model.Message;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.hibernate.Session;
+import org.learn.grizzly.model.Message;
+import org.learn.grizzly.model.Phone;
+import org.learn.grizzly.model.Student;
+import org.learn.grizzly.util.HibernateUtil;
 
 /**
  * Hello world!
@@ -20,7 +25,15 @@ public class App
         Message msg = new Message();
         msg.setText("Hola Bebé");
 
-        session.save(msg);
+        Set<Phone> phoneNumbers = new HashSet<Phone>();
+		phoneNumbers.add(new Phone("house","32354353"));
+		phoneNumbers.add(new Phone("mobile","9889343423"));
+		
+		Student student = new Student("Eswar");
+		student.setStudentPhoneNumbers(phoneNumbers);
+		session.save(student);
+		
+//        session.save(msg);
         session.getTransaction().commit();
     }
 }

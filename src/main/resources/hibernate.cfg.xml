@@ -26,6 +26,7 @@
         <property name="hbm2ddl.auto">create</property>
 
 		<mapping class="org.learn.grizzly.model.Message"/>
-
+		<mapping class="org.learn.grizzly.model.Student"/>
+		<mapping class="org.learn.grizzly.model.Phone"/>
     </session-factory>
 </hibernate-configuration>
