@@ -2,6 +2,7 @@ package org.learn.grizzly.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.Data;
 public class Phone {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer phoneId;
 	private String phoneType;
 	private String phoneNumber;

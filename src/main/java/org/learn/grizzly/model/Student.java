@@ -6,20 +6,26 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity
+//@Data
 public class Student {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //default strategy auto
 	private Integer studentId;
 	
 	private String studentName;
 	
+	//
+	//
+	//
+	//
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="STUDENT_PHONE", 
 				joinColumns={ @JoinColumn(name="STUDENT_ID") }, 
